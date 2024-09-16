@@ -1,6 +1,6 @@
 package model;
 
-import com.sun.security.ntlm.Client;
+import model.Client;
 
 import java.util.List;
 
@@ -13,5 +13,20 @@ public class GoldCard extends Card{
     public GoldCard(String cardNumber, Client owner,
                     Boolean isValid, Double balance, List<Transaction> transactions) {
         super(cardNumber, owner, isValid, balance, transactions);
+    }
+
+    @Override
+    public Integer getWithdrawCommission() {
+        return  WITHDRAW_ANOTHER_BANK_COMMISSION;
+    }
+
+    @Override
+    public Integer getDepositCommission() {
+        return DEPOSIT_ANOTHER_BANK_COMMISSION;
+    }
+
+    @Override
+    public Integer getTransferCommission() {
+        return TRANSFER_MONEY_ANOTHER_BANK;
     }
 }

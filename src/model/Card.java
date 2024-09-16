@@ -1,6 +1,6 @@
 package model;
 
-import com.sun.security.ntlm.Client;
+import model.Client;
 import exeptions.NotEnoughtBalanceExeption;
 
 import java.util.ArrayList;
@@ -79,4 +79,10 @@ public abstract class Card {
     public void addTransaction(Transaction transaction){
         transactions.add(transaction);
     }
+
+    public abstract Integer getWithdrawCommission();
+
+    public abstract Integer getDepositCommission();
+
+    public abstract Integer getTransferCommission();
 }
