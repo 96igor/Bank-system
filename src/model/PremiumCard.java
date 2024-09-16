@@ -2,6 +2,8 @@ package model;
 
 import com.sun.security.ntlm.Client;
 
+import java.util.List;
+
 public class PremiumCard extends Card{
 
     private static final Integer WITHDRAW_ANOTHER_BANK_COMMISSION = 0;
@@ -14,8 +16,8 @@ public class PremiumCard extends Card{
     private Double cashback;
 
     public PremiumCard(String cardNumber, Client owner,
-                       Boolean isValid, Double balance, Double cashback) {
-        super(cardNumber, owner, isValid, balance);
+                       Boolean isValid, Double balance, Double cashback, List<Transaction> transactions) {
+        super(cardNumber, owner, isValid, balance, transactions);
         this.cashback = cashback;
     }
 
@@ -25,5 +27,8 @@ public class PremiumCard extends Card{
 
     public void setCashback(Double cashback) {
         this.cashback = cashback;
+    }
+    public void addCashback(Double amount) {
+        //TODO implements
     }
 }

@@ -2,6 +2,9 @@ package model;
 
 import com.sun.security.ntlm.Client;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Card {
 
     private String cardNumber;
@@ -11,12 +14,22 @@ public abstract class Card {
 
     private Boolean isValid;
     private Double balance;
+    private List<Transaction> transactions;
 
-    public Card(String cardNumber, Client owner, Boolean isValid, Double balance) {
+    public Card(String cardNumber, Client owner, Boolean isValid, Double balance, List<Transaction> transactions) {
         this.cardNumber = cardNumber;
         this.owner = owner;
         this.isValid = isValid;
         this.balance = balance;
+        this.transactions = transactions;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
     }
 
     public String getCardNumber() {
