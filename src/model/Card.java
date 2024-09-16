@@ -1,6 +1,7 @@
 package model;
 
 import com.sun.security.ntlm.Client;
+import exeptions.NotEnoughtBalanceExeption;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,5 +63,20 @@ public abstract class Card {
 
     public void setBalance(Double balance) {
         this.balance = balance;
+    }
+
+    public void increaseAmount(Double inputAmount) {
+        this.balance += inputAmount;
+    }
+
+    public void decreaseAmount(Double inputAmount) {
+        if(balance - inputAmount < 0) {
+            throw new NotEnoughtBalanceExeption();
+        }
+        this.balance -= inputAmount;
+    }
+
+    public void addTransaction(Transaction transaction){
+        transactions.add(transaction);
     }
 }

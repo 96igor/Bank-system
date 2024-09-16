@@ -1,6 +1,6 @@
 package model;
 
-import javax.xml.crypto.Data;
+import java.time.LocalDateTime;
 
 public class Transaction {
 
@@ -11,9 +11,10 @@ public class Transaction {
     private Client clientTo;
     private String cardNumberFrom;
     private String cardNumberTo;
-    private Data timestamp;
+    private LocalDateTime timestamp;
 
-    public Transaction(String id, String operationType, Double amount, Client clientFrom, Client clientTo, String cardNumberFrom, String cardNumberTo, Data timestamp) {
+    public Transaction(String id, String operationType, Double amount, Client clientFrom, Client clientTo,
+                       String cardNumberFrom, String cardNumberTo, LocalDateTime timestamp) {
         this.id = id;
         this.operationType = operationType;
         this.amount = amount;
@@ -80,11 +81,11 @@ public class Transaction {
         this.cardNumberTo = cardNumberTo;
     }
 
-    public Data getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Data timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 }
